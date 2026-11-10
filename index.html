@@ -843,3 +843,65 @@ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "Intersecti
 @media(max-width:520px){
   .hero h1{line-height:1.08;padding-bottom:.12em}
 }
+
+/* REFINED CHAMPAGNE EDITION — richer gold, natural photography */
+:root{
+  --bg:#070809;
+  --surface:#101214;
+  --surface2:#17191b;
+  --ink:#f5f1e8;
+  --muted:#b5afa4;
+  --gold:#d9ad5b;
+  --gold-light:#f2d28e;
+  --line:rgba(217,173,91,.28);
+  --hairline:rgba(242,210,142,.18);
+}
+.brand span,.eyebrow,.hero-quote span,.photo-note{
+  color:var(--gold-light);
+}
+.button{
+  border-color:rgba(217,173,91,.48);
+}
+.button.primary{
+  color:#17130b;
+  background:linear-gradient(115deg,#c9953f 0%,#f0cf8a 52%,#d9aa55 100%);
+  border-color:#e5bd72;
+  box-shadow:0 9px 30px rgba(217,173,91,.2);
+}
+.button.primary:hover{
+  background:linear-gradient(115deg,#d7a84f 0%,#ffe3a7 52%,#e8bd6d 100%);
+  border-color:#f4d69b;
+  box-shadow:0 12px 36px rgba(217,173,91,.28);
+}
+.nav a:hover,.nav a[aria-current="location"]{
+  color:var(--gold-light);
+}
+.hero-photo,
+.photo-card img,
+.photo-card:hover img{
+  filter:none!important;
+}
+.photo-card img{
+  transition:transform .9s cubic-bezier(.2,.7,.2,1);
+}
+.photo-card:hover img{
+  transform:scale(1.045);
+}
+.photo-card figcaption{
+  color:var(--gold-light);
+  border-top-color:rgba(217,173,91,.18);
+}
+.photo-card:focus-within{
+  outline-color:var(--gold-light);
+}
+.photo-lightbox{
+  border-color:rgba(217,173,91,.42);
+}
+.lightbox-control{
+  border-color:rgba(217,173,91,.48);
+}
+::selection{
+  color:#17130b;
+  background:#e7c27c;
+}
+
