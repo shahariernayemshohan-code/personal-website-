@@ -552,11 +552,6 @@ h2{font-size:clamp(3rem,5.2vw,4.8rem);letter-spacing:-.055em}
 .button.primary{background:#d0bea0;border-color:#d0bea0;color:#111}
 .button.primary:hover{background:#e5d7bd;border-color:#e5d7bd;transform:translateY(-3px)}
 footer{border-top-color:rgba(225,210,181,.13)}
-#scroll-progress{
-  position:fixed;z-index:100;top:0;left:0;width:0;height:2px;
-  background:linear-gradient(90deg,#9f8a66,#ead9b8);
-  box-shadow:0 0 12px rgba(225,210,181,.35);pointer-events:none;
-}
 @media(max-width:760px){
   .wrap{width:min(100% - 44px,620px)}
   .hero{min-height:0;padding:78px 0 92px;gap:40px}
@@ -611,7 +606,6 @@ h1 em{color:#ffe0a0;text-shadow:0 5px 30px rgba(255,207,126,.2)}
 .social:hover,.photo-card:hover{border-color:rgba(255,218,145,.75)}
 .contact{border-color:rgba(237,189,99,.43)}
 .contact:after{border-color:rgba(237,189,99,.24)}
-#scroll-progress{height:3px;background:linear-gradient(90deg,#d9942e,#ffdc86,#fff0c5);box-shadow:0 0 17px rgba(255,196,83,.62)}
 .hero-art{border-color:rgba(237,189,99,.68);box-shadow:0 38px 110px rgba(0,0,0,.5),0 0 22px rgba(237,189,99,.055)}
 .hero-art:before{border-color:rgba(255,220,155,.28)}
 .hero-art:after{background:linear-gradient(transparent,#ffe0a0,transparent);box-shadow:0 0 12px rgba(255,220,160,.45)}
@@ -809,19 +803,6 @@ document.getElementById("year").textContent=new Date().getFullYear();
   });
   dialog.addEventListener("close",()=>{if(previousFocus?.focus) previousFocus.focus();});
 })();
-
-
-const progress=document.createElement("div");
-progress.id="scroll-progress";
-progress.setAttribute("aria-hidden","true");
-document.body.appendChild(progress);
-const updateProgress=()=>{
-  const max=document.documentElement.scrollHeight-window.innerHeight;
-  progress.style.width=(max>0?(window.scrollY/max)*100:0)+"%";
-};
-window.addEventListener("scroll",updateProgress,{passive:true});
-window.addEventListener("resize",updateProgress);
-updateProgress();
 const navLinks=[...document.querySelectorAll(".nav a")];
 const navSections=navLinks.map(link=>document.querySelector(link.getAttribute("href"))).filter(Boolean);
 if("IntersectionObserver" in window){
