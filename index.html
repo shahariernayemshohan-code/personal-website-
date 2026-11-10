@@ -61,6 +61,28 @@ h2{font:500 clamp(2rem,4vw,2.8rem)/1.15 var(--serif);margin:9px 0 0;letter-spaci
 footer{display:flex;justify-content:space-between;gap:15px;padding:28px 0 35px;color:#77736b;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
 @media(max-width:760px){.hero{grid-template-columns:1fr;gap:38px;padding:60px 0}.hero-art{justify-self:center;max-width:460px}.hero-photo{height:390px}.about-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-card img{height:230px}}
 @media(max-width:520px){.wrap{width:min(100% - 32px,1040px)}header{height:72px}.nav{gap:13px;font-size:.62rem;letter-spacing:.08em}.brand{font-size:1.1rem}.hero{padding:49px 0 57px;min-height:0}h1{font-size:3.75rem}.intro{font-size:.92rem}.hero-quote{font-size:1.04rem;margin-top:21px}.hero-art{max-width:390px;padding:12px 12px 0}.hero-art:before{inset:0 0 20px 20px}.hero-photo{height:auto;aspect-ratio:3/4;object-fit:cover}.photo-note{position:relative;right:auto;bottom:auto;display:block;width:fit-content;max-width:100%;margin:-1px 0 0 auto;padding:13px 15px;font-size:.85rem}.section-head{display:block}.section-note{margin-top:12px}.panel{padding:21px}.principles{grid-template-columns:1fr 1fr}.gallery{gap:9px}.photo-card img{height:175px}.photo-card figcaption{padding:10px;font-size:.61rem}.social-grid{grid-template-columns:1fr}.social{padding:16px}.contact{display:block;padding:23px}.contact .button{margin-top:20px}footer{font-size:.59rem}}
+
+/* Quiet, editorial motion */
+@keyframes softRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes portraitIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero>div:first-child{animation:softRise .85s cubic-bezier(.2,.7,.2,1) both}
+.hero-art{animation:portraitIn 1s .12s cubic-bezier(.2,.7,.2,1) both}
+.hero-art:before{transition:inset .6s ease,border-color .6s ease}
+.hero-art:hover:before{inset:-5px -5px 31px 31px;border-color:var(--gold-light)}
+.button,.social,.photo-card,.panel,.principle{will-change:transform}
+.panel,.principle{transition:border-color .35s ease,transform .35s ease,box-shadow .35s ease}
+.panel:hover{border-color:rgba(198,166,107,.28);box-shadow:0 22px 55px rgba(0,0,0,.2)}
+.principle:hover{transform:translateY(-3px);border-left-color:var(--gold-light)}
+.photo-card{transition:border-color .35s ease,box-shadow .35s ease}
+.photo-card:hover{border-color:rgba(223,200,149,.5);box-shadow:0 18px 42px rgba(0,0,0,.25)}
+.motion-ready .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+ .hero>div:first-child,.hero-art{animation:none!important}
+ .motion-ready .reveal{opacity:1!important;transform:none!important;transition:none!important}
+ .hero-art:hover:before{inset:0 0 36px 36px}
+}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
@@ -133,6 +155,19 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:28px 0 35px;c
 </section>
 <footer><span>© <span id="year"></span> Shohan</span><span>AN ORIGINAL PERSONAL SPACE</span></footer>
 </main>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window){
+  document.documentElement.classList.add("motion-ready");
+  const targets=document.querySelectorAll("section .section-head, section .panel, section .principle, .photo-card, .social, .contact");
+  targets.forEach((el,i)=>{el.classList.add("reveal");el.style.transitionDelay=(i%4)*75+"ms";});
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}
+    });
+  },{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+  targets.forEach(el=>observer.observe(el));
+}
+</script>
 </body>
 </html>
