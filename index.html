@@ -84,6 +84,30 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:28px 0 35px;c
 }
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Final portrait treatment: one balanced frame around photo and caption */
+.hero-art{
+  padding:12px;
+  border:1px solid rgba(198,166,107,.55);
+  background:#141414;
+}
+.hero-art:before,.hero-art:after{display:none!important;content:none!important}
+.photo-note{
+  position:static;
+  display:block;
+  width:100%;
+  margin:10px 0 0;
+  padding:8px 4px 2px;
+  border:0;
+  background:transparent;
+  text-align:right;
+  line-height:1.4;
+}
+.hero-art:hover:before{display:none!important}
+@media(max-width:520px){
+  .hero-art{padding:10px}
+  .photo-note{position:static;right:auto;bottom:auto;margin:8px 0 0;padding:7px 3px 1px}
+}
 </style>
 </head>
 <body>
