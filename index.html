@@ -852,3 +852,13 @@ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "Intersecti
 </script>
 </body>
 </html>
+
+/* HERO TYPE FIX — preserve the full descender on “grow” */
+.hero h1{
+  line-height:1.08;
+  padding-bottom:.10em;
+  overflow:visible;
+}
+@media(max-width:520px){
+  .hero h1{line-height:1.08;padding-bottom:.12em}
+}
