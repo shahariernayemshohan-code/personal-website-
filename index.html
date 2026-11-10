@@ -584,6 +584,89 @@ footer{border-top-color:rgba(225,210,181,.13)}
   .hero-art,.hero-photo,.photo-card img{transition:none!important}
 }
 
+
+/* BRIGHT CHAMPAGNE GOLD — stronger contrast, still refined */
+:root{
+  --gold:#edbd63;
+  --gold-light:#ffe0a0;
+  --line:rgba(237,189,99,.34);
+}
+.brand span{color:#ffd477;text-shadow:0 0 16px rgba(255,205,112,.5)}
+header:after{height:2px;background:linear-gradient(90deg,#e6a93e,#ffe4a7);box-shadow:0 0 15px rgba(255,204,112,.55)}
+.kicker,.eyebrow{color:#f5c96f;text-shadow:0 0 18px rgba(245,201,111,.15)}
+.kicker:before{height:2px;background:#f5c96f;box-shadow:0 0 12px rgba(245,201,111,.35)}
+h1 em{color:#ffe0a0;text-shadow:0 5px 30px rgba(255,207,126,.2)}
+.hero-quote{border-left:2px solid #edbd63}
+.hero-quote span,.photo-note{color:#ffdb91}
+.button{border-color:rgba(237,189,99,.62)}
+.button.primary{background:linear-gradient(115deg,#e6ad4f,#ffdc91 55%,#e9b65c);border-color:#f4ca79;color:#17120a;box-shadow:0 8px 30px rgba(237,189,99,.2)}
+.button.primary:hover{background:linear-gradient(115deg,#f4c46d,#ffebbb 55%,#f2c675);box-shadow:0 10px 36px rgba(237,189,99,.32)}
+.nav a:hover,.nav a[aria-current="location"]{color:#ffe0a0;text-shadow:0 0 14px rgba(255,214,143,.2)}
+.nav a:after{height:2px;background:#f2c46f;box-shadow:0 0 10px rgba(242,196,111,.35)}
+.panel,.photo-card,.social,.contact{border-color:rgba(237,189,99,.23)}
+.photo-card figcaption{color:#ffda91}
+.photo-card figcaption:before{height:2px;width:22px;background:#edbd63;box-shadow:0 0 9px rgba(237,189,99,.4)}
+.social-icon{color:#ffdc95;border-color:rgba(237,189,99,.55)}
+.social-arrow{color:#ffdc95}
+.social:hover,.photo-card:hover{border-color:rgba(255,218,145,.75)}
+.contact{border-color:rgba(237,189,99,.43)}
+.contact:after{border-color:rgba(237,189,99,.24)}
+#scroll-progress{height:3px;background:linear-gradient(90deg,#d9942e,#ffdc86,#fff0c5);box-shadow:0 0 17px rgba(255,196,83,.62)}
+.hero-art{border-color:rgba(237,189,99,.68);box-shadow:0 38px 110px rgba(0,0,0,.5),0 0 22px rgba(237,189,99,.055)}
+.hero-art:before{border-color:rgba(255,220,155,.28)}
+.hero-art:after{background:linear-gradient(transparent,#ffe0a0,transparent);box-shadow:0 0 12px rgba(255,220,160,.45)}
+/* Distinctive, short opening sequence — no blocking splash screen */
+@keyframes goldSweep{0%{transform:scaleX(0);transform-origin:left}55%{transform:scaleX(1);transform-origin:left}56%{transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
+@keyframes titleReveal{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(18px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(0)}}
+@keyframes accentGlow{0%,100%{text-shadow:0 5px 30px rgba(255,207,126,.12)}50%{text-shadow:0 5px 42px rgba(255,207,126,.36)}}
+.hero .kicker{animation:softRise .65s .08s both}
+.hero h1{animation:titleReveal .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 em{animation:accentGlow 3.8s 1.3s ease-in-out 2}
+.hero .intro{animation:softRise .75s .48s both}
+.hero .hero-quote{animation:softRise .75s .62s both}
+.hero .actions{animation:softRise .75s .76s both}
+.hero .kicker:after{content:"";display:block;position:absolute;width:52px;height:1px;background:#ffe0a0;box-shadow:0 0 12px rgba(255,220,160,.7);animation:goldSweep 1.15s .2s ease both}
+.hero .kicker{position:relative}
+@media(prefers-reduced-motion:reduce){
+ .hero .kicker,.hero h1,.hero h1 em,.hero .intro,.hero .hero-quote,.hero .actions{animation:none!important}
+ .hero .kicker:after{display:none}
+}
+/* IMMERSIVE PHOTO JOURNAL LIGHTBOX */
+.photo-card{cursor:zoom-in}
+.photo-card img{cursor:zoom-in}
+.photo-card:focus-within{outline:1px solid #ffe0a0;outline-offset:4px}
+.photo-lightbox{
+  width:min( min(1100px, calc(100% - 32px)), 1100px);
+  max-width:calc(100% - 28px);
+  max-height:calc(100% - 28px);
+  padding:0;
+  border:1px solid rgba(255,220,160,.58);
+  background:#090b0c;
+  color:#f2f0eb;
+  box-shadow:0 30px 120px rgba(0,0,0,.78),0 0 38px rgba(237,189,99,.1);
+}
+.photo-lightbox::backdrop{background:rgba(2,3,4,.88);backdrop-filter:blur(12px)}
+.lightbox-shell{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;max-height:calc(100svh - 56px)}
+.lightbox-image-wrap{min-height:0;display:grid;place-items:center;background:#050607;padding:clamp(12px,3vw,28px)}
+.lightbox-image{display:block;max-width:100%;max-height:calc(100svh - 170px);width:auto;height:auto;object-fit:contain}
+.lightbox-caption{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 20px;border-top:1px solid rgba(237,189,99,.25);color:#ffdc95;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.lightbox-controls{display:flex;align-items:center;gap:8px}
+.lightbox-control{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(237,189,99,.48);background:#111415;color:#ffe0a0;font:inherit;font-size:1.15rem;cursor:pointer;transition:background .2s,border-color .2s}
+.lightbox-control:hover{background:#292116;border-color:#ffe0a0}
+.lightbox-control:focus-visible{outline:2px solid #ffe0a0;outline-offset:3px}
+.lightbox-close{position:absolute;top:12px;right:12px;z-index:2;width:42px;height:42px;background:rgba(8,9,10,.86);font-size:1.35rem}
+@media(max-width:520px){
+ .photo-lightbox{max-width:calc(100% - 18px)}
+ .lightbox-shell{max-height:calc(100svh - 36px)}
+ .lightbox-image{max-height:calc(100svh - 150px)}
+ .lightbox-caption{padding:13px;font-size:.56rem;letter-spacing:.12em}
+ .lightbox-control{width:36px;height:36px}
+}
+@media(prefers-reduced-motion:reduce){
+ .photo-card img{transition:none!important}
+ .lightbox-control{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -657,6 +740,69 @@ footer{border-top-color:rgba(225,210,181,.13)}
 </main>
 <script>
 document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Accessible photo-journal viewer */
+(()=>{
+  const cards=[...document.querySelectorAll(".photo-card")];
+  if(!cards.length) return;
+  cards.forEach((card,index)=>{
+    const img=card.querySelector("img");
+    if(!img) return;
+    card.setAttribute("tabindex","0");
+    card.setAttribute("role","button");
+    card.setAttribute("aria-label","Open photograph: "+(card.querySelector("figcaption")?.textContent.trim()||img.alt));
+    card.dataset.photoIndex=String(index);
+  });
+  const dialog=document.createElement("dialog");
+  dialog.className="photo-lightbox";
+  dialog.setAttribute("aria-label","Photo journal viewer");
+  dialog.innerHTML='<div class="lightbox-shell"><button class="lightbox-control lightbox-close" type="button" aria-label="Close photo viewer">×</button><div class="lightbox-image-wrap"><img class="lightbox-image" alt=""></div><div class="lightbox-caption"><span class="lightbox-title"></span><span class="lightbox-controls"><button class="lightbox-control lightbox-prev" type="button" aria-label="Previous photo">‹</button><button class="lightbox-control lightbox-next" type="button" aria-label="Next photo">›</button></span></div></div>';
+  document.body.appendChild(dialog);
+  const viewerImage=dialog.querySelector(".lightbox-image");
+  const viewerTitle=dialog.querySelector(".lightbox-title");
+  let active=0;
+  let previousFocus=null;
+  const showPhoto=(index)=>{
+    active=(index+cards.length)%cards.length;
+    const image=cards[active].querySelector("img");
+    const caption=cards[active].querySelector("figcaption");
+    viewerImage.src=image.currentSrc||image.src;
+    viewerImage.alt=image.alt||"Photo journal image";
+    viewerTitle.textContent=(caption?.textContent.trim()||"Photo")+"  ·  "+(active+1)+" / "+cards.length;
+    dialog.querySelector(".lightbox-prev").disabled=cards.length<2;
+    dialog.querySelector(".lightbox-next").disabled=cards.length<2;
+  };
+  const openPhoto=(index)=>{
+    previousFocus=document.activeElement;
+    showPhoto(index);
+    if(!dialog.open) dialog.showModal();
+    dialog.querySelector(".lightbox-close").focus();
+  };
+  const closePhoto=()=>{
+    if(dialog.open) dialog.close();
+    if(previousFocus?.focus) previousFocus.focus();
+  };
+  cards.forEach((card,index)=>{
+    card.addEventListener("click",event=>{
+      if(event.target.closest("a,button")) return;
+      openPhoto(index);
+    });
+    card.addEventListener("keydown",event=>{
+      if(event.target!==card) return;
+      if(event.key==="Enter"||event.key===" "){event.preventDefault();openPhoto(index);}
+    });
+  });
+  dialog.querySelector(".lightbox-close").addEventListener("click",closePhoto);
+  dialog.querySelector(".lightbox-prev").addEventListener("click",()=>showPhoto(active-1));
+  dialog.querySelector(".lightbox-next").addEventListener("click",()=>showPhoto(active+1));
+  dialog.addEventListener("click",event=>{if(event.target===dialog) closePhoto();});
+  dialog.addEventListener("keydown",event=>{
+    if(event.key==="ArrowLeft"){event.preventDefault();showPhoto(active-1);}
+    if(event.key==="ArrowRight"){event.preventDefault();showPhoto(active+1);}
+  });
+  dialog.addEventListener("close",()=>{if(previousFocus?.focus) previousFocus.focus();});
+})();
+
 
 const progress=document.createElement("div");
 progress.id="scroll-progress";
