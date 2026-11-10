@@ -8,6 +8,15 @@
 <meta property="og:title" content="Shohan — Personal Portfolio">
 <meta property="og:description" content="A personal space for technology, travel, photography, personal growth and meaningful ideas.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://shahariernayemshohan-code.github.io/personal-website-/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23070809'/%3E%3Cpath d='M13 15h38v34H13z' fill='none' stroke='%23d9ad5b' stroke-width='1.5'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Georgia,serif' font-size='22' fill='%23f2d28e'%3ES.%3C/text%3E%3C/svg%3E">
+<meta property="og:url" content="https://shahariernayemshohan-code.github.io/personal-website-/">
+<meta property="og:image" content="https://shahariernayemshohan-code.github.io/personal-website-/bakal-1.JPG">
+<meta property="og:image:alt" content="A travel photograph from Shohan's personal journal">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SHOHAN — Personal Portfolio">
+<meta name="twitter:description" content="A personal space for technology, travel, photography and meaningful ideas.">
+<meta name="twitter:image" content="https://shahariernayemshohan-code.github.io/personal-website-/bakal-1.JPG">
 <title>SHOHAN — Personal Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -844,10 +853,66 @@ h1 em{color:#ffe0a0;text-shadow:0 5px 30px rgba(255,207,126,.2)}
   .lens-gallery .photo-card img{height:190px!important}
   .lens-gallery .photo-card figcaption{font-size:.5rem;gap:8px}
 }
+
+
+/* DEVICE COMPATIBILITY & ACCESSIBILITY FINISH */
+html{scroll-padding-top:110px}
+body{overflow-x:hidden;overflow-x:clip}
+img{max-width:100%}
+.wrap{min-width:0}
+main,section,.hero,.panel,.contact,.lens-section{min-width:0}
+p,h1,h2,h3,a,span{overflow-wrap:break-word}
+.hero{min-height:calc(100vh - 96px);min-height:min(850px,calc(100vh - 96px));}
+.hero-photo,.photo-card img{filter:none!important;-webkit-filter:none!important}
+.photo-card:hover img,.photo-card:focus-within img{filter:none!important;-webkit-filter:none!important}
+.skip-link{
+  position:fixed;left:14px;top:12px;z-index:1000;
+  padding:12px 16px;background:#f2d28e;color:#111;
+  transform:translateY(-160%);transition:transform .2s ease;
+  font-size:.8rem;font-weight:700;
+}
+.skip-link:focus{transform:translateY(0)}
+:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}
+@media(max-width:760px){
+  header{height:auto;min-height:72px;flex-wrap:wrap;gap:10px;padding:13px 0}
+  .nav{width:100%;max-width:none;justify-content:space-between;flex-wrap:wrap;gap:7px 12px}
+}
+@media(max-width:520px){
+  header{height:auto;min-height:72px;padding:13px 0 12px;gap:11px}
+  .brand{font-size:.72rem;letter-spacing:.25em}
+  .nav{width:100%;justify-content:space-between;gap:7px 9px}
+  .nav a{font-size:clamp(.47rem,2.15vw,.55rem);letter-spacing:.045em;white-space:nowrap}
+  .hero{min-height:0}
+  .hero h1{max-width:100%;font-size:clamp(3.25rem,13.5vw,5rem)}
+  .actions .button{max-width:100%}
+  .lens-section{padding:24px 14px}
+  .contact{min-width:0}
+  footer{flex-wrap:wrap}
+}
+@media(max-width:350px){
+  .wrap{width:calc(100% - 26px)}
+  .nav{justify-content:flex-start;column-gap:13px;row-gap:8px}
+  .nav a{font-size:.49rem}
+  .hero h1{font-size:clamp(3rem,13vw,3.6rem)}
+  .photo-card figcaption{padding:10px 8px}
+}
+@supports not (height:100svh){
+  .hero{min-height:calc(100vh - 96px)}
+}
+@media(hover:none){
+  .hero-art:hover{transform:none}
+  .photo-card:hover img,.lens-gallery .photo-card:hover img{transform:none}
+  .social:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .skip-link{transition:none}
+}
+
 </style>
 </head>
 <body>
-<main class="wrap">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<main class="wrap" id="main-content">
 <header>
 <a class="brand" href="#top" aria-label="Shohan home">SHOHAN<span>.</span></a>
 <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#interests">Interests</a><a href="#places">Places</a><a href="#through-my-lens">Through My Lens</a><a href="#connect">Connect</a></nav>
@@ -858,7 +923,7 @@ h1 em{color:#ffe0a0;text-shadow:0 5px 30px rgba(255,207,126,.2)}
 <h1>Curious<br>by nature.<br><em>Driven to grow.</em></h1>
 <p class="intro">Hello, I’m Shohan. I’m interested in technology, thoughtful ideas and the process of turning curiosity into something real. This is where I share a little of my world.</p>
 <blockquote class="hero-quote">“I may not be doing what the world calls ‘doing something’ just yet, but I’m quietly working towards something meaningful.”<span>A thought I live by</span></blockquote>
-<div class="actions"><a class="button primary" href="#gallery">Explore my world <span>↗</span></a><a class="button" href="https://wa.me/8801626085040" target="_blank" rel="noopener noreferrer">Say hello</a></div>
+<div class="actions"><a class="button primary" href="#places">Explore my world <span>↗</span></a><a class="button" href="https://wa.me/8801626085040" target="_blank" rel="noopener noreferrer">Say hello</a></div>
 </div>
 <div class="hero-art">
 <img class="hero-photo" src="./bakal-1.JPG" alt="Bakal — a photograph from my travels" fetchpriority="high">
@@ -943,6 +1008,10 @@ document.getElementById("year").textContent=new Date().getFullYear();
     card.setAttribute("aria-label","Open photograph: "+(card.querySelector("figcaption")?.textContent.trim()||img.alt));
     card.dataset.photoIndex=String(index);
   });
+  if(!("HTMLDialogElement" in window) || typeof HTMLDialogElement.prototype.showModal!=="function"){
+    cards.forEach(card=>{card.removeAttribute("tabindex");card.removeAttribute("role");card.removeAttribute("aria-label");});
+    return;
+  }
   const dialog=document.createElement("dialog");
   dialog.className="photo-lightbox";
   dialog.setAttribute("aria-label","Photo journal viewer");
