@@ -9,7 +9,7 @@
 <meta property="og:description" content="A personal space for technology, travel, photography, personal growth and meaningful ideas.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://shahariernayemshohan-code.github.io/personal-website-/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23070809'/%3E%3Cpath d='M13 15h38v34H13z' fill='none' stroke='%23d9ad5b' stroke-width='1.5'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Georgia,serif' font-size='22' fill='%23f2d28e'%3ES.%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <meta property="og:url" content="https://shahariernayemshohan-code.github.io/personal-website-/">
 <meta property="og:image" content="https://shahariernayemshohan-code.github.io/personal-website-/bakal-1.JPG">
 <meta property="og:image:alt" content="A travel photograph from Shohan's personal journal">
@@ -1033,6 +1033,78 @@ footer{border-top:1px solid rgba(255,255,255,.075)}
 }
 @media(prefers-reduced-motion:reduce){
   .photo-card:hover{transform:none}
+}
+
+
+/* MOBILE REFINEMENT — cleaner navigation, spacing and touch targets */
+@media(max-width:760px){
+  header{
+    align-items:center;
+    row-gap:12px;
+    padding:14px 0 12px;
+  }
+  .nav{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:clamp(16px,4.2vw,25px);
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:2px 1px 8px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto;min-height:30px;display:inline-flex;align-items:center}
+  .hero{min-height:0}
+  .hero-art{width:100%}
+  .hero-photo{width:100%;object-fit:cover}
+  .places-gallery,.lens-gallery{min-width:0}
+  .photo-card{min-width:0}
+  .photo-card img{width:100%}
+  .social{min-height:84px}
+}
+@media(max-width:520px){
+  .wrap{width:calc(100% - 30px)}
+  header{gap:10px;padding:12px 0 10px}
+  .nav{gap:19px;margin-right:-2px}
+  .nav a{font-size:.56rem;letter-spacing:.075em}
+  .hero{padding-top:48px;padding-bottom:58px}
+  .hero h1{font-size:clamp(3.25rem,13.2vw,4.5rem);line-height:1.04}
+  .hero .intro{max-width:38ch}
+  .hero .actions{display:grid;grid-template-columns:1fr 1fr}
+  .hero .actions .button{width:100%;padding-inline:9px;text-align:center}
+  .hero-art{max-width:100%;padding:8px}
+  .hero-photo{aspect-ratio:4/5;height:auto}
+  section{padding-top:66px;padding-bottom:66px}
+  .section-head{gap:12px}
+  .section-note{font-size:.82rem}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
+  .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .principle{min-width:0;padding:15px;min-height:118px}
+  .principle strong{font-size:1rem}
+  .principle span{font-size:.72rem}
+  .places-gallery,.lens-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .places-gallery .photo-card:nth-child(n),
+  .lens-gallery .photo-card:nth-child(n){grid-column:span 1!important}
+  .places-gallery .photo-card img,
+  .lens-gallery .photo-card img{height:auto!important;aspect-ratio:4/5;object-fit:cover}
+  .photo-card figcaption{font-size:.53rem;letter-spacing:.12em;padding:11px 9px}
+  .social-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .social{padding:16px 17px}
+  .contact{padding:22px 18px}
+  footer{gap:10px;line-height:1.7}
+}
+@media(max-width:360px){
+  .wrap{width:calc(100% - 24px)}
+  .nav{gap:15px}
+  .nav a{font-size:.52rem}
+  .hero h1{font-size:3.15rem}
+  .hero .actions{grid-template-columns:1fr}
+  .principle{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav{scroll-behavior:auto}
 }
 
 </style>
