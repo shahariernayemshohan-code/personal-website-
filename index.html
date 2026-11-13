@@ -82,8 +82,13 @@
     .photo-lightbox{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(5,6,5,.94);backdrop-filter:blur(10px)}
     .photo-lightbox.open{display:flex}
     .photo-lightbox img{display:block;max-width:min(100%,1500px);max-height:88vh;width:auto;height:auto;object-fit:contain;box-shadow:0 24px 100px rgba(0,0,0,.55)}
-    .photo-lightbox button{position:absolute;top:18px;right:20px;width:46px;height:46px;border:1px solid rgba(238,234,225,.35);border-radius:50%;background:rgba(20,21,18,.7);color:#f2efe8;font-size:1.6rem;cursor:pointer}
+    .photo-lightbox button{position:absolute;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(238,234,225,.35);border-radius:50%;background:rgba(20,21,18,.7);color:#f2efe8;font-size:1.6rem;cursor:pointer;transition:background .2s,border-color .2s}
+    .photo-lightbox button:hover{background:rgba(201,169,120,.22);border-color:var(--accent-light)}
     .photo-lightbox button:focus-visible{outline:2px solid var(--accent-light);outline-offset:4px}
+    .photo-lightbox .lightbox-close{top:18px;right:20px}
+    .photo-lightbox .lightbox-prev{left:clamp(12px,3vw,38px);top:50%;transform:translateY(-50%)}
+    .photo-lightbox .lightbox-next{right:clamp(12px,3vw,38px);top:50%;transform:translateY(-50%)}
+    .lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#d2c7b5;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase}
     .place figcaption{position:absolute;z-index:1;left:0;right:0;bottom:0;display:flex;align-items:end;justify-content:space-between;gap:14px;padding:30px 25px 23px;color:#f1ede4;font:500 clamp(1.45rem,2.5vw,2.15rem) var(--serif);letter-spacing:-.02em}
     .place figcaption span{flex:0 0 auto;color:var(--accent-light);font:600 .58rem var(--sans);letter-spacing:.16em;text-transform:uppercase}
     .lens{padding:clamp(30px,5vw,62px);background:linear-gradient(145deg,#1b1d19,#121411 62%,#1c1812);border:1px solid rgba(201,169,120,.25)}
@@ -224,9 +229,12 @@
       </div>
     </section>
 
-    <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Expanded travel photograph">
-      <button type="button" id="photo-lightbox-close" aria-label="Close enlarged photograph">×</button>
+    <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Photo gallery">
+      <button type="button" class="lightbox-close" id="photo-lightbox-close" aria-label="Close photo gallery">×</button>
+      <button type="button" class="lightbox-prev" id="photo-lightbox-prev" aria-label="Previous photo">‹</button>
       <img id="photo-lightbox-image" alt="">
+      <button type="button" class="lightbox-next" id="photo-lightbox-next" aria-label="Next photo">›</button>
+      <div class="lightbox-counter" id="photo-lightbox-counter" aria-live="polite"></div>
     </div>
 
     <section class="section" id="lens">
@@ -261,9 +269,20 @@
     const lightbox = document.getElementById("photo-lightbox");
     const lightboxImage = document.getElementById("photo-lightbox-image");
     const lightboxClose = document.getElementById("photo-lightbox-close");
-    const openPhoto = image => {
+    const lightboxPrev = document.getElementById("photo-lightbox-prev");
+    const lightboxNext = document.getElementById("photo-lightbox-next");
+    const lightboxCounter = document.getElementById("photo-lightbox-counter");
+    const galleryPhotos = [...document.querySelectorAll(".place img, .shot img")];
+    let activePhotoIndex = 0;
+    const showPhoto = index => {
+      activePhotoIndex = (index + galleryPhotos.length) % galleryPhotos.length;
+      const image = galleryPhotos[activePhotoIndex];
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt;
+      lightboxCounter.textContent = String(activePhotoIndex + 1).padStart(2, "0") + " / " + String(galleryPhotos.length).padStart(2, "0");
+    };
+    const openPhoto = image => {
+      showPhoto(galleryPhotos.indexOf(image));
       lightbox.classList.add("open");
       document.body.style.overflow = "hidden";
       lightboxClose.focus();
@@ -273,15 +292,23 @@
       lightboxImage.removeAttribute("src");
       document.body.style.overflow = "";
     };
-    document.querySelectorAll(".place img").forEach(image => {
+    const previousPhoto = () => showPhoto(activePhotoIndex - 1);
+    const nextPhoto = () => showPhoto(activePhotoIndex + 1);
+    galleryPhotos.forEach(image => {
+      image.style.cursor = "zoom-in";
       image.addEventListener("click", () => openPhoto(image));
     });
     lightboxClose.addEventListener("click", closePhoto);
+    lightboxPrev.addEventListener("click", previousPhoto);
+    lightboxNext.addEventListener("click", nextPhoto);
     lightbox.addEventListener("click", event => {
       if (event.target === lightbox) closePhoto();
     });
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && lightbox.classList.contains("open")) closePhoto();
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closePhoto();
+      if (event.key === "ArrowLeft") previousPhoto();
+      if (event.key === "ArrowRight") nextPhoto();
     });
 
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
