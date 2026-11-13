@@ -76,7 +76,7 @@
     .place:nth-child(3),.place:nth-child(4){grid-column:span 6}
     .place img{display:block;width:100%;height:clamp(340px,34vw,470px);object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1);filter:saturate(.88)}
     .place:nth-child(1) img,.place:nth-child(2) img{height:clamp(430px,43vw,570px)}
-    .place:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(180deg,transparent 0%,rgba(8,9,8,.08) 28%,rgba(8,9,8,.78) 100%);pointer-events:none}
+    
     .place:hover img{transform:scale(1.035);filter:saturate(1)}
     .place img{cursor:zoom-in}
     .photo-lightbox{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(5,6,5,.94);backdrop-filter:blur(10px)}
@@ -89,8 +89,7 @@
     .photo-lightbox .lightbox-prev{left:clamp(12px,3vw,38px);top:50%;transform:translateY(-50%)}
     .photo-lightbox .lightbox-next{right:clamp(12px,3vw,38px);top:50%;transform:translateY(-50%)}
     .lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:#d2c7b5;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase}
-    .place figcaption{position:absolute;z-index:1;left:0;right:0;bottom:0;display:flex;align-items:end;justify-content:space-between;gap:14px;padding:30px 25px 23px;color:#f1ede4;font:500 clamp(1.45rem,2.5vw,2.15rem) var(--serif);letter-spacing:-.02em}
-    .place figcaption span{flex:0 0 auto;color:var(--accent-light);font:600 .58rem var(--sans);letter-spacing:.16em;text-transform:uppercase}
+    
     .lens{padding:clamp(30px,5vw,62px);background:linear-gradient(145deg,#1b1d19,#121411 62%,#1c1812);border:1px solid rgba(201,169,120,.25)}
     .lens .section-top{margin-bottom:35px}
     .lens-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -155,8 +154,7 @@
       .places{grid-template-columns:1fr;gap:14px}
       .place,.place:nth-child(n){grid-column:auto}
       .place img,.place:nth-child(1) img,.place:nth-child(2) img,.place:nth-child(4) img{height:auto;aspect-ratio:4/3}
-      .place figcaption{padding:26px 18px 17px;font-size:1.55rem}
-      .place figcaption span{font-size:.5rem}
+
       .lens{padding:23px 14px}
       .lens-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 10px}
       .shot img{height:auto;aspect-ratio:4/5}
@@ -222,10 +220,10 @@
     <section class="section" id="places">
       <div class="section-top"><div><div class="section-label">02 — The travel journal</div><h2>Places that stay.</h2></div><p class="section-note">A few frames from places I’ve visited. Every place leaves a different kind of impression.</p></div>
       <div class="places">
-        <figure class="place"><img src="./bandarban.JPG" alt="A scenic travel photograph" loading="lazy"><figcaption>Quiet moments <span>EXPLORE THE FRAME ↗</span></figcaption></figure>
-        <figure class="place"><img src="./bogura.jpeg" alt="A travel photograph" loading="lazy"><figcaption>Passing through <span>FIELD NOTES ↗</span></figcaption></figure>
-        <figure class="place"><img src="./kaptai.jpeg" alt="A waterside travel photograph" loading="lazy"><figcaption>Still waters <span>BY THE WATER ↗</span></figcaption></figure>
-        <figure class="place"><img src="./kuakata.jpeg" alt="A coastal travel photograph" loading="lazy"><figcaption>Open horizons <span>THE COAST ↗</span></figcaption></figure>
+        <figure class="place"><img src="./bandarban.JPG" alt="A scenic travel photograph" loading="lazy"></figure>
+        <figure class="place"><img src="./bogura.jpeg" alt="A travel photograph" loading="lazy"></figure>
+        <figure class="place"><img src="./kaptai.jpeg" alt="A waterside travel photograph" loading="lazy"></figure>
+        <figure class="place"><img src="./kuakata.jpeg" alt="A coastal travel photograph" loading="lazy"></figure>
       </div>
     </section>
 
