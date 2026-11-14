@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{fon
 .topbar{height:92px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);background:rgba(12,9,7,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .wordmark{font-size:.78rem;letter-spacing:.34em;font-weight:700}.wordmark span{color:var(--accent-2)}
 .nav{display:flex;align-items:center;gap:clamp(18px,2.7vw,40px)}
-.nav a{position:relative;font-size:.59rem;text-transform:uppercase;letter-spacing:.18em;color:#c9bba9;transition:color .25s}.nav a:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:#e6c77f;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}.nav a.active{color:#e6c77f}.nav a.active:after{transform:scaleX(1)}
+.nav a{position:relative;display:inline-flex;align-items:center;padding:0 0 9px;font-size:.59rem;text-transform:uppercase;letter-spacing:.18em;color:#c9bba9;transition:color .25s}.nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:#e6c77f;transform:scaleX(0);transform-origin:center;transition:transform .28s ease}.nav a.active{color:#e6c77f}.nav a.active:after{transform:scaleX(1)}
 .nav a:hover,.nav a:focus-visible{color:var(--accent)}
 .nav .nav-contact{padding:0;border:0;background:transparent;color:#c9bba9;transition:color .25s}
 .nav .nav-contact:hover{background:transparent;color:var(--accent-2)}
@@ -164,7 +164,7 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:27px 0 36px;b
     <header class="topbar">
       <div class="topbar-head"><a class="wordmark" href="#home" aria-label="Shohan home">SHOHAN<span>.</span></a></div>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a><a href="#places">Places</a><a href="#lens">Photography</a><a href="#interests">Interests</a><a class="nav-contact" href="#connect">Connect ↗</a>
+        <a href="#about">About</a><a href="#places">Places</a><a href="#lens">Photography</a><a href="#interests">Interests</a><a class="nav-contact" href="#connect">Connect</a>
       </nav>
     </header>
 
@@ -248,22 +248,38 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:27px 0 36px;b
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const navLinks = [...document.querySelectorAll(".nav a[href^='#']")];
-    const navTargets = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    const navItems = navLinks.map(link => ({
+      link,
+      target: document.getElementById(link.getAttribute("href").slice(1))
+    })).filter(item => item.target);
+
     const updateActiveNav = () => {
-      const marker = window.scrollY + document.querySelector(".topbar").offsetHeight + 90;
-      let activeTarget = null;
-      navTargets.forEach(target => {
-        if (target.offsetTop <= marker) activeTarget = target;
-      });
-      navLinks.forEach(link => {
-        const isActive = activeTarget && link.getAttribute("href") === "#" + activeTarget.id;
-        link.classList.toggle("active", Boolean(isActive));
-        if (isActive) link.setAttribute("aria-current", "location");
-        else link.removeAttribute("aria-current");
+      const headerBottom = document.querySelector(".topbar").getBoundingClientRect().bottom;
+      const marker = headerBottom + 24;
+      let activeItem = null;
+
+      for (const item of navItems) {
+        if (item.target.getBoundingClientRect().top <= marker) activeItem = item;
+        else break;
+      }
+
+      // Keep the final section selected when the page reaches its bottom.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        activeItem = navItems[navItems.length - 1] || null;
+      }
+
+      navItems.forEach(item => {
+        const isActive = item === activeItem;
+        item.link.classList.toggle("active", isActive);
+        if (isActive) item.link.setAttribute("aria-current", "location");
+        else item.link.removeAttribute("aria-current");
       });
     };
+
     window.addEventListener("scroll", updateActiveNav, { passive: true });
     window.addEventListener("resize", updateActiveNav);
+    window.addEventListener("hashchange", updateActiveNav);
+    window.addEventListener("pageshow", updateActiveNav);
     updateActiveNav();
 
     const lightbox = document.getElementById("photo-lightbox");
