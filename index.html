@@ -57,8 +57,8 @@ h1 em{font-weight:500;color:var(--accent);font-style:italic}
 .portrait-wrap{position:relative;max-width:570px;width:100%;justify-self:end;margin:0;padding:0}
 .portrait-wrap:before{display:none}
 .portrait-wrap:after{display:none}
-.portrait{position:relative;width:100%;height:clamp(480px,51vw,670px);object-fit:cover;object-position:center 42%;filter:saturate(.82) contrast(1.04);background:#352317}
-.portrait-caption{display:none}
+.portrait{position:relative;width:100%;height:clamp(480px,51vw,670px);object-fit:cover;object-position:center 42%;filter:saturate(.82) contrast(1.04);background:#352317;border:1px solid var(--accent-2);box-shadow:0 0 0 1px rgba(201,155,74,.24),0 22px 65px rgba(0,0,0,.28)}
+.portrait-caption{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:19px 0 0;padding:15px 2px 0;border-top:1px solid rgba(201,155,74,.38);color:var(--accent-2);font:500 .76rem var(--serif);letter-spacing:.17em;text-transform:uppercase}.portrait-caption span:first-child{font:italic 500 clamp(.9rem,1.25vw,1.08rem) var(--serif);letter-spacing:.12em;color:#f0dfc0}.portrait-caption span:last-child{flex:0 0 auto;color:#b99a69;font:600 .5rem var(--sans);letter-spacing:.22em}
 .portrait-caption span:last-child{color:var(--quiet)}
 .section{padding:clamp(82px,9.5vw,136px) 0;border-top:1px solid var(--line)}
 .section-top{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px}
@@ -132,7 +132,7 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:27px 0 36px;b
  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:26px}
  .btn{min-height:47px;padding:0 10px;font-size:.52rem;letter-spacing:.09em;gap:8px}
  .portrait-wrap{padding:0}.portrait-wrap:before,.portrait-wrap:after{display:none}
- .portrait{aspect-ratio:4/4.8}.portrait-caption{padding:10px 11px;font-size:.43rem;letter-spacing:.1em;gap:12px}
+ .portrait{aspect-ratio:4/4.8}.portrait-caption{margin-top:14px;padding-top:12px;gap:10px}.portrait-caption span:first-child{font-size:.82rem;letter-spacing:.08em}.portrait-caption span:last-child{font-size:.43rem;letter-spacing:.14em}
  .section{padding:72px 0}.section-top{display:block;margin-bottom:30px}
  h2{font-size:clamp(2.65rem,10vw,3.65rem)}.section-note{margin-top:15px;font-size:.77rem}
  .about-panel{min-height:0;padding:27px}.about-panel p{font-size:.88rem;line-height:2}
