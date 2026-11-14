@@ -31,7 +31,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-web
 body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 78% 8%,rgba(153,99,48,.22),transparent 35%),radial-gradient(ellipse at 4% 60%,rgba(201,155,74,.08),transparent 32%),linear-gradient(180deg,#100c09 0%,#0d0b09 60%,#090807 100%)}
 a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit}
 .wrap{width:min(var(--wrap),calc(100% - var(--gutter)*2));margin-inline:auto}
-.skip{position:fixed;top:12px;left:12px;z-index:3000;padding:12px 16px;background:var(--accent-2);color:#101827;transform:translateY(-150%)}.skip:focus{transform:none}
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:2001;background:rgba(201,155,74,.12);pointer-events:none}.scroll-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#b78332,#e6c77f);box-shadow:0 0 9px rgba(230,199,127,.55);transition:width .08s linear}.skip{position:fixed;top:12px;left:12px;z-index:3000;padding:12px 16px;background:var(--accent-2);color:#101827;transform:translateY(-150%)}.skip:focus{transform:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:5px}
 .topbar{height:92px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);background:rgba(12,9,7,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .wordmark{font-size:.78rem;letter-spacing:.34em;font-weight:700}.wordmark span{color:var(--accent-2)}
@@ -57,7 +57,7 @@ h1 em{font-weight:500;color:var(--accent);font-style:italic}
 .portrait-wrap{position:relative;max-width:570px;width:100%;justify-self:end;margin:0;padding:0}
 .portrait-wrap:before{display:none}
 .portrait-wrap:after{display:none}
-.portrait{position:relative;width:100%;height:clamp(480px,51vw,670px);object-fit:cover;object-position:center 42%;filter:saturate(.82) contrast(1.04);background:#352317;border:3px solid #e6c77f;box-shadow:0 0 0 1px #6d4b20,0 0 0 4px rgba(201,155,74,.32),inset 0 0 0 1px rgba(255,244,218,.35),0 22px 65px rgba(0,0,0,.38)}
+.portrait{position:relative;width:100%;height:clamp(480px,51vw,670px);object-fit:cover;object-position:center 42%;filter:saturate(.82) contrast(1.04);background:#352317;border:2px solid #e6c77f;box-shadow:0 22px 65px rgba(0,0,0,.38)}
 .portrait-caption{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:19px 0 0;padding:15px 2px 0;border-top:1px solid rgba(201,155,74,.38);color:var(--accent-2);font:500 .76rem var(--serif);letter-spacing:.17em;text-transform:uppercase}.portrait-caption span:first-child{font:italic 500 clamp(.9rem,1.25vw,1.08rem) var(--serif);letter-spacing:.12em;color:#f0dfc0}.portrait-caption span:last-child{flex:0 0 auto;color:#b99a69;font:600 .5rem var(--sans);letter-spacing:.22em}
 .portrait-caption span:last-child{color:var(--quiet)}
 .section{padding:clamp(82px,9.5vw,136px) 0;border-top:1px solid var(--line)}
@@ -159,6 +159,7 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:27px 0 36px;b
 </style>
 </head>
 <body>
+  <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
   <a class="skip" href="#main">Skip to content</a>
   <main class="wrap" id="main">
     <header class="topbar">
@@ -246,6 +247,18 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:27px 0 36px;b
   </main>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const scrollProgress = document.querySelector(".scroll-progress");
+    const scrollProgressFill = scrollProgress.querySelector("span");
+    const updateScrollProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100)) : 0;
+      scrollProgressFill.style.width = progress + "%";
+      scrollProgress.setAttribute("aria-valuenow", String(Math.round(progress)));
+    };
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+    updateScrollProgress();
 
     const lightbox = document.getElementById("photo-lightbox");
     const lightboxImage = document.getElementById("photo-lightbox-image");
