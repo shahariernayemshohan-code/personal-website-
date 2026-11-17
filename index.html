@@ -635,6 +635,30 @@ body{min-width:320px;width:100%;overflow-x:hidden}
   color:#a77b50!important;
 }
 
+
+/* Compact navigation spacing across screen sizes */
+.nav-inner{min-height:72px!important;gap:16px!important}
+.nav{gap:clamp(13px,1.7vw,24px)!important}
+.nav a{font-size:.62rem!important;letter-spacing:.085em!important}
+.wordmark{font-size:.74rem!important;letter-spacing:.23em!important}
+.nav-cta{padding:10px 14px!important;font-size:.58rem!important}
+@media(max-width:900px){
+  .nav-inner{min-height:68px!important;gap:12px!important}
+  .nav{gap:clamp(10px,1.5vw,16px)!important}
+  .nav a{font-size:.58rem!important;letter-spacing:.055em!important}
+}
+@media(max-width:620px){
+  .nav-inner{min-height:64px!important;gap:8px!important}
+  .wordmark{font-size:.63rem!important;letter-spacing:.12em!important}
+  .nav{gap:clamp(7px,1.8vw,11px)!important}
+  .nav a{font-size:clamp(8px,2.25vw,10px)!important;letter-spacing:0!important}
+}
+@media(max-width:370px){
+  .nav-inner{gap:6px!important}
+  .nav{gap:6px!important}
+  .nav a{font-size:7.5px!important}
+}
+
 </style>
 </head>
 <body>
