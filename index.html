@@ -486,6 +486,52 @@ footer{margin-top:0}
   .hero-visual{padding:0!important}
   .connect-grid{gap:0 10px!important}
 }
+
+/* Responsive safeguards for narrow phones, tablets and wide displays */
+html{width:100%;overflow-x:hidden}
+body{min-width:320px;width:100%;overflow-x:hidden}
+.wrap{max-width:1480px}
+.hero-text,.hero-visual,.section-head>*,.project,.archive-item,.social{min-width:0}
+.hero-image,.project-image img,.archive-image img{max-width:100%}
+@media(min-width:621px) and (max-width:900px){
+  :root{--gutter:clamp(22px,4vw,36px)}
+  .nav-inner{gap:14px!important}
+  .nav{gap:clamp(10px,1.8vw,16px)!important}
+  .nav a{font-size:clamp(8px,1vw,10px)!important;letter-spacing:.04em!important}
+  .nav-cta{padding:9px 11px;font-size:8px}
+  .hero{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(20px,3vw,30px)}
+  .hero h1{font-size:clamp(3.5rem,7vw,4.8rem)}
+  .hero-image{height:auto;max-height:58svh;aspect-ratio:4/5;object-fit:cover}
+}
+@media(max-width:760px){
+  .section-head{grid-template-columns:1fr!important;gap:14px!important}
+  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:30px 12px!important}
+  .project-wide,.project-offset,.project-offset-small,.project-last{grid-column:auto!important;margin:0!important}
+  .project-image,.project-offset .project-image,.project-offset-small .project-image{aspect-ratio:4/5!important}
+  .philosophy-section{display:block!important}
+  .philosophy-sticky{position:static!important;margin-bottom:24px!important}
+  .contact-main{display:block!important}
+  .connect-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:380px){
+  :root{--gutter:15px}
+  .nav-inner{display:flex!important;flex-wrap:wrap!important;justify-content:flex-start!important;gap:10px!important;padding:12px 0!important;min-height:0!important}
+  .wordmark{width:100%;font-size:.64rem!important}
+  .nav{width:100%;justify-content:space-between!important;gap:8px!important}
+  .nav a{font-size:8px!important;letter-spacing:0!important;white-space:nowrap}
+  .nav-cta{display:none!important}
+  .hero h1{font-size:clamp(2.85rem,13vw,3.5rem)!important}
+  .hero .eyebrow{font-size:8px!important;letter-spacing:.1em!important}
+  .project h3{font-size:1.45rem!important}
+  .project p{font-size:.65rem!important}
+  .social-mark{width:34px!important;height:34px!important;flex-basis:34px!important}
+  .social-name{font-size:1rem!important}
+  .social-handle{font-size:.48rem!important;overflow-wrap:anywhere}
+}
+@media(min-width:1500px){
+  .wrap{width:min(1480px,calc(100% - 112px))}
+  .hero{gap:clamp(70px,7vw,110px)}
+}
 </style>
 </head>
 <body>
