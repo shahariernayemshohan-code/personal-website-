@@ -67,10 +67,10 @@
     .btn.dark { background: var(--ink); color: var(--white); }
     .btn.dark:hover { background: var(--olive-dark); border-color: var(--olive-dark); }
     .btn.light:hover { background: var(--ink); color: white; }
-    .hero-visual { position: relative; width: 100%; max-width: 680px; justify-self: end; margin: 0; padding: 0 0 36px 34px; }
-    .hero-visual::before { position: absolute; top: 26px; right: 24px; bottom: 0; left: 0; border: 1px solid #c8bda9; content: ""; }
-    .hero-image-frame { position: relative; z-index: 1; padding: 11px; background: var(--paper); border: 1px solid #c8bda9; }
-    .hero-image { width: 100%; height: auto; object-fit: contain; background: var(--paper-deep); }
+    .hero-visual { position: relative; width: 100%; max-width: 720px; justify-self: end; margin: 0; padding: 0 0 18px 10px; }
+    .hero-visual::before { position: absolute; top: 10px; right: 8px; bottom: 0; left: 0; border: 1px solid rgba(180,154,117,.32); content: ""; }
+    .hero-image-frame { position: relative; z-index: 1; padding: 3px; background: #10100f; border: 1px solid #51483a; }
+    .hero-image { width: 100%; height: auto; object-fit: contain; background: #10100f; }
     .hero-caption { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 16px; padding: 15px 2px 0; color: #5f594f; font: italic 500 .9rem var(--serif); }
     .hero-caption span:last-child { color: var(--muted); font: 600 .49rem var(--sans); letter-spacing: .15em; text-transform: uppercase; }
 
@@ -336,6 +336,20 @@
       .jinxing-title { margin: 20px 0 17px; font-size: clamp(2.8rem, 11vw, 4.2rem); line-height: 1.06; }
       .jinxing-subtitle { font-size: 1.05rem; line-height: 1.55; }
       .hero-supporting { margin-top: 14px; font-size: .78rem; }
+    }
+
+
+    /* Minimal hero photograph: let the image lead */
+    .hero-visual { max-width: 760px; padding: 0 0 12px 5px; }
+    .hero-visual::before { top: 7px; right: 5px; border-color: rgba(180,154,117,.25); }
+    .hero-image-frame { padding: 2px; border-color: rgba(180,154,117,.55); }
+    .hero-caption { padding-top: 12px; color: #b5ad9f; font: 400 .78rem var(--sans); letter-spacing: .01em; }
+    .hero-caption span:last-child { font-size: .46rem; letter-spacing: .14em; }
+    @media (max-width: 620px) {
+      .hero-visual { padding: 0 0 10px 4px; }
+      .hero-visual::before { top: 6px; right: 4px; }
+      .hero-image-frame { padding: 2px; }
+      .hero-caption { padding-top: 10px; }
     }
 
   </style>
