@@ -66,6 +66,67 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:28px 0 35px;b
     object-position: center center;
   }
 }
+
+/* Final responsive refinement: balanced hero, compact navigation and consistent rhythm. */
+.topbar{z-index:50}
+.nav-inner{width:min(var(--max),calc(100% - var(--gutter)*2))}
+.nav a{white-space:nowrap}
+.hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(30px,5vw,76px);padding:clamp(52px,6vw,88px) 0 clamp(76px,8vw,112px)}
+.hero-text{min-width:0;max-width:620px}
+.hero h1{font-size:clamp(4.15rem,6.7vw,7rem);line-height:.91;margin:clamp(20px,2.2vw,30px) 0 22px}
+.hero-copy{max-width:440px;font-size:.9rem;line-height:1.8}
+.hero-visual{width:100%;max-width:760px;justify-self:end;padding:0 0 14px 10px}
+.hero-image-frame{display:block}
+.hero-image{max-height:min(68svh,720px)}
+.hero-caption{display:flex;justify-content:space-between;gap:12px;padding-top:12px}
+.section{padding-top:clamp(76px,8.5vw,124px);padding-bottom:clamp(76px,8.5vw,124px)}
+.section-head{align-items:end}
+.project-image img,.archive-image img{background:#141416}
+.btn,.nav-cta,.filter-pill,.lightbox-close,.lightbox-prev,.lightbox-next{transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease}
+.btn:focus-visible,.nav-cta:focus-visible,.filter-pill:focus-visible,.archive-image:focus-visible,.lightbox-close:focus-visible,.lightbox-prev:focus-visible,.lightbox-next:focus-visible{outline:2px solid #c5a880;outline-offset:4px}
+@media(max-width:900px){
+  .hero{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:26px;padding:58px 0 92px}
+  .hero h1{font-size:clamp(3.45rem,7vw,5.35rem)}
+  .hero-image{max-height:62svh}
+  .nav-inner{gap:14px}
+  .nav{gap:clamp(10px,1.8vw,17px)}
+  .nav a{font-size:.54rem}
+}
+@media(max-width:620px){
+  .nav-inner{min-height:64px;gap:10px}
+  .wordmark{font-size:.59rem;letter-spacing:.16em;white-space:nowrap}
+  .nav{flex:1;justify-content:flex-end;gap:clamp(8px,2.1vw,13px);min-width:0}
+  .nav a{font-size:clamp(7px,1.9vw,9px);letter-spacing:.035em}
+  .nav-cta{display:none}
+  .hero{min-height:auto;display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:56px 0 76px}
+  .hero-text{max-width:100%}
+  .eyebrow{font-size:9px;letter-spacing:.14em}
+  .hero h1{font-size:clamp(3.15rem,12vw,4.8rem);line-height:.93;margin:22px 0 18px}
+  .hero-copy{max-width:38rem;font-size:.84rem;line-height:1.78}
+  .availability{margin-top:21px;font-size:9px}
+  .hero-actions{margin-top:26px}
+  .btn{min-height:46px}
+  .hero-visual{width:100%;max-width:none;padding:0 0 12px 6px}
+  .hero-image{max-height:none}
+  .hero-caption{font-size:.82rem;padding-top:10px}
+  .hero-index{bottom:19px}
+  .section{padding-top:72px;padding-bottom:72px}
+  .section-head{margin-bottom:32px}
+  .section-head h2{font-size:clamp(3rem,11.5vw,4.2rem);line-height:.94}
+  .section-note{line-height:1.8}
+  .project-grid{gap:38px 13px}
+  .archive-grid{gap:24px 12px}
+  .contact-main h2{font-size:clamp(4rem,16vw,5.8rem)}
+}
+@media(max-width:370px){
+  :root{--gutter:16px}
+  .nav-inner{gap:8px}
+  .wordmark{font-size:.55rem;letter-spacing:.12em}
+  .nav{gap:7px}
+  .nav a{font-size:7px;letter-spacing:0}
+  .hero h1{font-size:clamp(3rem,11.5vw,3.6rem)}
+}
+
 </style>
 </head>
 <body>
