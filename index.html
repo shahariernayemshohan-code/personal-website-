@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f0e6">
+  <meta name="theme-color" content="#10100f">
   <meta name="description" content="Shohan's personal journal — technology, travel, photography and the ideas in between.">
   <meta property="og:title" content="Shohan — Personal Journal">
   <meta property="og:description" content="Curiosity, places and moments worth keeping.">
@@ -272,6 +272,45 @@
       .hero-note { border-left-color: #b49a75; }
     }
 
+
+    /* Final editorial refinements */
+    .hero { gap: clamp(48px, 8vw, 124px); }
+    .hero-text { max-width: 610px; }
+    .hero h1 { margin-bottom: 34px; }
+    .hero-note { margin-top: 34px; max-width: 440px; }
+    .hero-actions { margin-top: 36px; }
+    .about-layout { gap: clamp(52px, 8vw, 124px); }
+    .about-statement { padding: clamp(38px, 5vw, 66px) 0; }
+    .about-statement p { max-width: 660px; line-height: 1.78; }
+    .values { column-gap: 30px; }
+    .value { min-height: 148px; }
+    .places-grid { gap: 18px; }
+    .place { background: #171613; }
+    .place img { filter: saturate(1) contrast(1.04); }
+    .place figcaption { padding: 58px 23px 20px; font-size: 1.2rem; }
+    .lens-grid { column-gap: 22px; row-gap: 34px; }
+    .shot img { filter: saturate(1) contrast(1.04); }
+    .shot figcaption { padding-top: 15px; letter-spacing: .01em; }
+    @media (max-width: 900px) {
+      .hero { gap: 38px; }
+      .about-layout { gap: 38px; }
+      .value { min-height: 132px; }
+    }
+    @media (max-width: 620px) {
+      .hero { gap: 28px; padding-top: 36px; }
+      .hero h1 { margin-bottom: 25px; }
+      .hero-note { margin-top: 25px; }
+      .hero-actions { margin-top: 26px; }
+      .about-layout { gap: 28px; }
+      .about-statement { padding: 34px 0; }
+      .about-statement p { line-height: 1.8; }
+      .value { min-height: 112px; }
+      .places-grid { gap: 14px; }
+      .place figcaption { padding: 45px 16px 15px; }
+      .lens-grid { gap: 24px 12px; }
+      .shot figcaption { padding-top: 11px; }
+    }
+
   </style>
 </head>
 <body>
@@ -284,7 +323,6 @@
           <a href="#about">About</a>
           <a href="#places">Places</a>
           <a href="#lens">Photography</a>
-          <a href="#interests">Interests</a>
           <a href="#connect">Connect</a>
         </nav>
       </div>
