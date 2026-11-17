@@ -665,6 +665,28 @@ footer{display:flex;justify-content:space-between;gap:18px;padding:28px 0 35px;b
 @media(max-width:900px){.hero{grid-template-columns:1fr 1fr;gap:30px}.hero h1{font-size:clamp(3.7rem,8vw,6rem)}.project-grid{column-gap:20px}.philosophy-section{gap:45px}.connect-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){:root{--gutter:21px}.nav-inner{min-height:66px;gap:12px}.wordmark{font-size:.62rem;letter-spacing:.2em}.nav{gap:13px}.nav a{font-size:.47rem;letter-spacing:.07em}.nav-cta{padding:9px 11px;font-size:.45rem;gap:7px}.hero{min-height:auto;display:flex;flex-direction:column;align-items:stretch;padding:72px 0 85px;gap:40px}.hero h1{font-size:clamp(3.65rem,14vw,5.5rem);margin:25px 0 20px}.hero-copy{font-size:.84rem}.hero-visual{width:100%;padding-left:7px}.hero-image{height:auto;aspect-ratio:4/5;object-fit:cover}.hero-index{bottom:25px;font-size:8px}.section{padding:82px 0}.section-head{display:block;margin-bottom:35px}.section-note{margin-top:15px;max-width:360px;font-size:.72rem}.section-head h2{font-size:clamp(3.1rem,12vw,4.4rem)}.project-grid{grid-template-columns:1fr 1fr;gap:43px 13px}.project-wide,.project-offset,.project-offset-small,.project-last{grid-column:auto;margin:0}.project-image,.project-offset .project-image,.project-offset-small .project-image{aspect-ratio:4/5}.project:nth-child(odd){margin-top:25px}.project-meta{gap:8px;margin-top:12px}.project h3{font-size:1.8rem}.project p{font-size:.68rem}.project-open{display:none}.archive-toolbar{display:block;margin-top:0}.filter-list{margin-top:17px;gap:6px}.filter-pill{min-height:36px;padding:0 12px;font-size:9px}.archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 11px}.archive-item figcaption b{font-size:1.15rem}.archive-item figcaption span{font-size:8px}.photo-lightbox{padding:60px 16px 75px}.photo-lightbox img{max-width:94vw;max-height:72vh}.lightbox-prev{left:8px}.lightbox-next{right:8px}.lightbox-close{top:12px;right:12px}.lightbox-counter{bottom:18px;left:18px}.lightbox-caption{bottom:18px;right:18px;font-size:.9rem}.philosophy-section{display:block}.philosophy-sticky{position:static;margin-bottom:38px}.philosophy-sticky h2{font-size:clamp(3.5rem,13vw,5rem)}.philosophy-copy .philosophy-lead{font-size:2rem}.interest-list{margin-top:35px}.interest-list>div{grid-template-columns:28px 1fr;gap:8px}.interest-list small{grid-column:2}.contact-main{display:block;margin:28px 0 50px}.contact-main h2{font-size:clamp(4.4rem,17vw,6.3rem)}.contact-cta{margin-top:28px}.connect-grid{grid-template-columns:1fr 1fr;gap:0 14px}.social{min-height:92px}.social-name{font-size:1.2rem}.social-handle{font-size:.55rem}.social-left{gap:9px}.social-icon{width:29px;height:29px}footer{flex-wrap:wrap;font-size:8px;line-height:1.7}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Hero image framing: preserve the photograph's original composition at every breakpoint. */
+.hero-visual { align-self: center; }
+.hero-image-frame { height: auto; }
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center center;
+  transform: none;
+}
+@media (max-width: 620px) {
+  .hero-visual { width: 100%; }
+  .hero-image {
+    height: auto !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center;
+  }
+}
 </style>
 </head>
 <body>
