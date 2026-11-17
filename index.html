@@ -456,6 +456,36 @@ button,.nav-cta,.hero-actions a{accent-color:#a77b50}
   .hero .eyebrow{margin-bottom:18px!important;letter-spacing:.13em}
   .hero-index{bottom:16px!important}
 }
+
+/* Site-wide spacing refinement — compact, deliberate editorial rhythm */
+:root{--gutter:clamp(18px,4.2vw,64px)}
+.wrap{width:min(var(--max),calc(100% - var(--gutter)*2))}
+.section{padding-top:clamp(48px,5.2vw,72px)!important;padding-bottom:clamp(48px,5.2vw,72px)!important}
+.section-head{margin-bottom:clamp(22px,2.8vw,34px)!important}
+.project-grid{row-gap:clamp(30px,4vw,48px)!important;column-gap:clamp(12px,1.8vw,22px)!important}
+.archive-grid{gap:clamp(18px,2.4vw,30px) clamp(12px,1.5vw,20px)!important}
+.archive-toolbar{margin-bottom:24px!important}
+.philosophy-section{gap:clamp(28px,4vw,54px)!important}
+.interest-list{margin-top:26px!important}
+.contact-main{margin:24px 0 38px!important;gap:22px!important}
+.connect-grid{gap:0 12px!important}
+.hero{padding-bottom:clamp(52px,5vw,70px)!important}
+.hero-visual{padding:0 0 8px 4px!important}
+.project p,.philosophy-copy p{margin-top:10px}
+footer{margin-top:0}
+@media(max-width:760px){
+  .section{padding-top:40px!important;padding-bottom:42px!important}
+  .section-head{margin-bottom:22px!important}
+  .project-grid{row-gap:28px!important;column-gap:12px!important}
+  .archive-grid{gap:20px 11px!important}
+  .archive-toolbar{margin-bottom:18px!important}
+  .philosophy-section{gap:24px!important}
+  .interest-list{margin-top:22px!important}
+  .contact-main{margin:20px 0 30px!important;gap:16px!important}
+  .hero{padding-bottom:48px!important;gap:20px!important}
+  .hero-visual{padding:0!important}
+  .connect-grid{gap:0 10px!important}
+}
 </style>
 </head>
 <body>
