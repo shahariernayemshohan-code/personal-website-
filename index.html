@@ -440,6 +440,22 @@ button,.nav-cta,.hero-actions a{accent-color:#a77b50}
 .photo-lightbox{background:rgba(5,5,5,.985)!important}
 .lightbox-caption{color:#f2eadc!important}
 @media(max-width:620px){.hero-image-frame{background:#0d0c0b!important}}
+
+/* Hero spacing refinement — bring the introduction closer to the navigation */
+.hero{
+  min-height:auto!important;
+  padding-top:clamp(28px,3.2vw,46px)!important;
+  padding-bottom:clamp(66px,7vw,94px)!important;
+  align-content:initial!important;
+}
+.hero-text{padding-top:0!important;padding-bottom:0!important}
+.hero .eyebrow{margin-top:0!important;margin-bottom:clamp(18px,2.1vw,27px)!important;gap:10px;letter-spacing:.16em}
+.hero-index{bottom:20px!important}
+@media(max-width:760px){
+  .hero{padding:28px 0 58px!important;gap:23px!important;min-height:auto!important}
+  .hero .eyebrow{margin-bottom:18px!important;letter-spacing:.13em}
+  .hero-index{bottom:16px!important}
+}
 </style>
 </head>
 <body>
