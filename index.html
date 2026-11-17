@@ -638,7 +638,19 @@ footer { color:#898174; font-size:.48rem; letter-spacing:.16em; }
   .shot img, .shot:nth-child(n) img { aspect-ratio:5/4; }
 }
 
-</style>
+
+    /* Refined introduction within the About section */
+    .about-statement { padding: 30px 0 34px; border-top-color: var(--olive); border-bottom-color: var(--line); }
+    .about-intro-subtitle { margin: 0 0 24px; color: var(--olive-dark); font: italic 400 clamp(1.45rem, 2.3vw, 2rem)/1.25 var(--serif); letter-spacing: -.025em; }
+    .about-copy { display: grid; gap: 17px; }
+    .about-statement .about-copy p { max-width: 660px; margin: 0; color: var(--muted); font: 400 .82rem/1.95 var(--sans); }
+    @media (max-width: 620px) {
+      .about-statement { padding: 25px 0 28px; }
+      .about-intro-subtitle { margin-bottom: 19px; font-size: 1.48rem; }
+      .about-statement .about-copy p { font-size: .78rem; line-height: 1.9; }
+      .about-copy { gap: 14px; }
+    }
+    </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -680,6 +692,14 @@ footer { color:#898174; font-size:.48rem; letter-spacing:.16em; }
         <p class="section-note">A few of the interests and ideas that continue to shape my perspective.</p>
       </div>
       <div class="about-layout">
+        <div class="about-statement">
+          <div class="about-intro-subtitle">Somewhere between curiosity and discovery.</div>
+          <div class="about-copy">
+            <p>I'm interested in how things work, but just as curious about everything beyond a screen. I like discovering unfamiliar places, noticing details others might pass by, and keeping moments through photography.</p>
+            <p>Technology gives me new questions. Travel gives me new perspectives. Photography gives me a way to remember what caught my attention.</p>
+            <p>I'm still learning what matters to me, and letting the rest unfold.</p>
+          </div>
+        </div>
         <div class="values" id="interests">
           <div class="value"><b>Technology</b><span>Tools, ideas and what comes next.</span></div>
           <div class="value"><b>Travel</b><span>New landscapes and different perspectives.</span></div>
