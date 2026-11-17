@@ -311,6 +311,33 @@
       .shot figcaption { padding-top: 11px; }
     }
 
+
+    /* Make the jinxing thought the central message of the homepage */
+    .jinxing-title {
+      max-width: 760px;
+      margin: 30px 0 22px;
+      font: 400 clamp(3.4rem, 7.4vw, 7.6rem)/1.02 var(--sans);
+      letter-spacing: -.075em;
+    }
+    .jinxing-title span { color: #c4aa83; }
+    .jinxing-subtitle {
+      max-width: 620px;
+      margin: 0;
+      color: #e3d8c7;
+      font: 400 clamp(1.15rem, 2vw, 1.65rem)/1.55 var(--sans);
+      letter-spacing: -.025em;
+    }
+    .hero-supporting {
+      margin: 22px 0 0;
+      color: #b5ad9f;
+      font: 400 .9rem/1.8 var(--sans);
+    }
+    @media (max-width: 620px) {
+      .jinxing-title { margin: 20px 0 17px; font-size: clamp(2.8rem, 11vw, 4.2rem); line-height: 1.06; }
+      .jinxing-subtitle { font-size: 1.05rem; line-height: 1.55; }
+      .hero-supporting { margin-top: 14px; font-size: .78rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -331,8 +358,9 @@
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-text">
         <div class="eyebrow">A personal journal · Est. 2026</div>
-        <h1 id="hero-title">Curious<br>by nature.<br><em>Always becoming.</em></h1>
-        <blockquote class="hero-note">“I don't believe in jinxing. I believe in keeping unfinished stories private.”<small>A thought I live by</small></blockquote>
+        <h1 id="hero-title" class="jinxing-title">I don't believe in <span>jinxing.</span></h1>
+        <p class="jinxing-subtitle">I believe in keeping unfinished stories private.</p>
+        <p class="hero-supporting">Curious by nature. Always becoming.</p>
         <div class="hero-actions">
           <a class="btn dark" href="#places">Explore the journal <span>↗</span></a>
           <a class="btn light" href="https://wa.me/8801626085040" target="_blank" rel="noopener noreferrer">Say hello <span>↗</span></a>
