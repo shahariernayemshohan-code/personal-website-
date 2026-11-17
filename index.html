@@ -366,36 +366,35 @@ footer{border-top-color:var(--line);letter-spacing:.15em}
 @media(prefers-reduced-motion:reduce){.status-dot{animation:none}.social:hover{transform:none}}
 
   
-/* Warm brown atmosphere — espresso shadows, walnut surfaces and antique bronze details. */
-:root{--paper:#100d0b;--paper-deep:#19130f;--ink:#f3eee6;--muted:#a99d90;--line:rgba(190,157,119,.18);--gold:#b9956b;--olive:#b9956b;--olive-dark:#98734f}
-html,body{background:radial-gradient(ellipse at 14% 22%,rgba(91,57,35,.23),transparent 38rem),radial-gradient(ellipse at 86% 68%,rgba(73,47,31,.16),transparent 42rem),#100d0b;color:#f3eee6}
-.topbar{background:rgba(16,13,11,.9);border-bottom-color:rgba(185,149,107,.22)}
-.hero-image-frame{background:linear-gradient(145deg,rgba(185,149,107,.17),rgba(35,24,17,.72));border-color:rgba(185,149,107,.36)}
-.hero-visual::before{border-color:rgba(185,149,107,.48)}
-.hero-caption{color:#d0b99d}
-.section{border-top-color:rgba(185,149,107,.17)}
-.section-kicker,.eyebrow,.project-index,.archive-item figcaption span{color:#c09a70}
-.project-image,.archive-image{background:#211710;outline-color:rgba(185,149,107,.2)}
-.project-image img,.archive-image img{transition:transform .85s cubic-bezier(.2,.7,.2,1),filter .85s ease}
-.project-image:hover img,.archive-image:hover img{filter:saturate(1.06) sepia(.035)}
-.category-tag{border-color:rgba(185,149,107,.4);color:#c5a987}
-.archive-section{background:linear-gradient(180deg,#1b1511 0%,#120e0c 100%)}
-.archive-section::before{background:linear-gradient(90deg,transparent,rgba(185,149,107,.4),transparent)}
-.archive-toolbar,.interest-list>div,.connect-grid,.social,footer{border-color:rgba(185,149,107,.18)}
-.filter-pill{border-color:rgba(185,149,107,.28);color:#b9aa98}
-.filter-pill.active,.filter-pill:hover{background:#b9956b;border-color:#b9956b;color:#17100b}
-.philosophy-note,.section-note,.project p{color:#b0a395}
-.philosophy-copy .philosophy-lead{color:#f0e8dc}
-.contact-main h2{max-width:900px;font-size:clamp(4.3rem,9vw,8.8rem)}
-.contact-main h2 em{color:#c19a70}
-.social{min-height:112px;padding:0 4px;color:#eee6db}
-.social:hover{color:#c49d72;transform:translateX(3px)}
-.social-left{gap:0}
-.social-name{font-size:1.55rem;letter-spacing:.01em}
-.social-handle{color:#a99987;font-size:.68rem;letter-spacing:.025em}
-.social-arrow,.social-icon,.contact-cta{display:none!important}
-@media(max-width:620px){.contact-main h2{font-size:clamp(3.8rem,14.8vw,5.6rem)}.social{min-height:88px}.social-name{font-size:1.3rem}.social-handle{font-size:.58rem;overflow-wrap:anywhere}}
-
+/* Final palette: deep black surfaces, cream typography, brown used only as a text accent. */
+:root{--paper:#050505;--paper-deep:#080808;--ink:#f2eadc;--muted:#c3b9aa;--line:rgba(242,234,220,.14);--gold:#a77b50;--olive:#a77b50;--olive-dark:#8d6542}
+html,body{background:#050505!important;color:#f2eadc}
+body{background-image:none!important}
+.topbar{background:rgba(5,5,5,.96);border-bottom-color:rgba(242,234,220,.14);box-shadow:none}
+.hero-image-frame{background:#080808;border-color:rgba(242,234,220,.2)}
+.hero-visual::before{border-color:rgba(167,123,80,.55)}
+.eyebrow,.section-kicker,.project-index,.archive-item figcaption span{color:#a77b50}
+.hero h1,.hero h1 em,h2,h2 em,.wordmark,.nav a,.hero-copy,.availability,.hero-caption,.section-note,.project h3,.project p,.archive-item figcaption b,.philosophy-note,.philosophy-copy .philosophy-lead,.social,.social-handle,footer{color:#f2eadc}
+.hero h1 em,h2 em,.contact-main h2 em{color:#a77b50}
+.section{background:#050505;border-top-color:rgba(242,234,220,.13)}
+.project-image,.archive-image{background:#080808;outline-color:rgba(242,234,220,.14)}
+.project-image img,.archive-image img{filter:none}
+.project-image:hover img,.project-image:focus-visible img,.archive-image:hover img,.archive-image:focus-visible img{filter:none}
+.category-tag{border-color:rgba(167,123,80,.45);color:#a77b50}
+.archive-section{background:#080808}
+.archive-section::before{background:linear-gradient(90deg,transparent,rgba(167,123,80,.32),transparent)}
+.archive-toolbar,.interest-list>div,.connect-grid,.social,footer{border-color:rgba(242,234,220,.14)}
+.filter-pill{border-color:rgba(242,234,220,.2);color:#d8cfc1}
+.filter-pill.active,.filter-pill:hover{background:transparent;border-color:#a77b50;color:#a77b50}
+.contact-main h2 em{color:#a77b50}
+.social:hover{color:#a77b50;transform:translateX(3px)}
+.social-name{color:#f2eadc}
+.social-handle{color:#c3b9aa}
+.photo-lightbox{background:rgba(0,0,0,.98)}
+.lightbox-counter{color:#a77b50}
+.lightbox-caption{color:#f2eadc}
+:focus-visible{outline-color:#a77b50}
+@media(max-width:620px){.hero-image-frame{background:#080808}}
 </style>
 </head>
 <body>
